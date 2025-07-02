@@ -4,11 +4,14 @@ import './App.css';
 
 import BlogCard from './blogCard';  
 
+import {isArrayEmpty} from './utils'
+
 
 
 
 
 function App() {
+  // const blogArr = null
   const blogArr = [
     {
       title: "Heading 1",
@@ -25,9 +28,10 @@ function App() {
     }
 
   ]
+ 
 
 
-  const blogCard = blogArr.map((item,pos) => {
+  const blogCard = isArrayEmpty(blogArr) ?['hello'] : blogArr.map((item,pos) => {
     // console.log(item)
 
     return (

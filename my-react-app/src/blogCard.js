@@ -1,8 +1,9 @@
 
+import {Clogs} from './utils'
 
 const blogCard = (properties) => {
 
-    // console.log(properties)
+    Clogs('hello')
     return (
         <div className='divStyle'>
 
