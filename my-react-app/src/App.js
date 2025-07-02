@@ -31,7 +31,7 @@ function App() {
     // console.log(item)
 
     return (
-      <BlogCard key={pos}/>
+      <BlogCard key={pos} title={item.title} description={item.description} />
       // <div className='divStyle'>
 
       //   <h1> {item.title}</h1>
@@ -45,7 +45,7 @@ function App() {
 
 
 
-  const blogCard1 =  <BlogCard/>
+  // const blogCard1 =  <BlogCard/>
 
 
 
@@ -53,7 +53,7 @@ function App() {
     <div className="App">
       <h1>Learn React</h1>
       {blogCard}
-      {blogCard1}
+      {/* {blogCard1} */}
 
 
 
