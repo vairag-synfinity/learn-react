@@ -8,53 +8,50 @@ import './App.css';
 
 
 function App() {
-  const obj = {
-    title: "Heading",
-    description: "In React, a div element functions similarly to a standard HTML div,serving as a generic container for other elements."
-  }
+  const blogArr = [
+    {
+      title: "Heading 1",
+      description: "In React, a div element functions similarly to a standard HTML div,serving as a generic container for other elements."
+    },
+    {
+      title: "Heading 2",
+      description: "In React, a div element functions similarly to a standard HTML div,serving as a generic container for other elements."
+    },
 
-  const cssStyle =
-  {
-    margin: '13px',
-    border: '1px solid black',
-    padding: '16px',
-    boxShadow: '0 2px 8px #000'
+    {
+      title: "Heading 3",
+      description: "In React, a div element functions similarly to a standard HTML div,serving as a generic container for other elements."
+    }
 
-  }
+  ]
+
+
+  const blogCard = blogArr.map((item) => {
+    console.log(item)
+
+    return (
+      <div className='divStyle'>
+
+        <h1> {item.title}</h1>
+
+        <p>{item.description} </p>
+
+      </div>
+    )
+
+  })
 
 
   return (
     <div className="App">
       <h1>Learn React</h1>
+      {blogCard}
 
-      <div style={                     //adding inline style//
-        {
-          margin: '13px',
-          border: '1px solid black',
-          padding: '16px',
-          boxShadow: '0 2px 8px #000'
 
-        }
-      }>
 
-        <h1> {obj.title}</h1>
 
-        <p>{obj.description} </p>
-      </div>
 
-      <div style={cssStyle}>           {/* variable style */}
 
-        <h1> {obj.title}</h1>
-
-        <p>{obj.description} </p>
-      </div>
-
-      <div className='divStyle'>        {/* external style */}
-
-        <h1> {obj.title}</h1>
-
-        <p>{obj.description} </p>
-      </div>
 
 
 
