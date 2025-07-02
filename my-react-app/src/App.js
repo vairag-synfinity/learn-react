@@ -2,6 +2,7 @@
 // import logo from './logo.svg';
 import './App.css';
 
+import BlogCard from './blogCard';  
 
 
 
@@ -26,26 +27,33 @@ function App() {
   ]
 
 
-  const blogCard = blogArr.map((item) => {
-    console.log(item)
+  const blogCard = blogArr.map((item,pos) => {
+    // console.log(item)
 
     return (
-      <div className='divStyle'>
+      <BlogCard key={pos}/>
+      // <div className='divStyle'>
 
-        <h1> {item.title}</h1>
+      //   <h1> {item.title}</h1>
 
-        <p>{item.description} </p>
+      //   <p>{item.description} </p>
 
-      </div>
+      // </div>
     )
 
   })
+
+
+
+  const blogCard1 =  <BlogCard/>
+
 
 
   return (
     <div className="App">
       <h1>Learn React</h1>
       {blogCard}
+      {blogCard1}
 
 
 
@@ -64,6 +72,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
