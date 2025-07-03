@@ -16,3 +16,12 @@
     }
     
 }
+
+
+.btnStyle{
+  font-size: large;
+  padding: 10px;
+  background-color: #4cafad; /* Green */
+  color: white;
+  border: none;
+}
