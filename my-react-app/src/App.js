@@ -1,11 +1,11 @@
 
 // import logo from './logo.svg';
-import  {Component} from 'react';
+import { Component } from 'react';
 import './App.css';
 
-import BlogCard from './blogCard';  
+import BlogCard from './blogCard';
 
-import {isArrayEmpty} from './utils'
+import { isArrayEmpty } from './utils'
 
 
 
@@ -14,11 +14,11 @@ import {isArrayEmpty} from './utils'
 
 class App extends Component {
 
-  state ={
-    showBlog : true
+  state = {
+    showBlog: true
   }
   // const blogArr = null
-   blogArr = [
+  blogArr = [
     {
       title: "Heading 1",
       description: "In React, a div element functions similarly to a standard HTML div,serving as a generic container for other elements."
@@ -34,11 +34,10 @@ class App extends Component {
     }
 
   ]
- 
-   
 
-   blogCard = isArrayEmpty(this.blogArr) ?['hello'] : this.blogArr.map((item,pos) => {
-    // console.log(item)
+
+
+  blogCard = isArrayEmpty(this.blogArr) ? ['hello'] : this.blogArr.map((item, pos) => {
 
 
 
@@ -55,39 +54,42 @@ class App extends Component {
 
   })
 
-  onHideBtnClick=()=>{
-    this.setState({showBlog:false})
+  onHideBtnClick = () => {
+  //  let updatedShowBlog = !this.state.showBlog
+  //  console.log(updatedShowBlog)
+  //  this.setState({ showBlog: updatedShowBlog })
 
-    console.log(this.showBlog)
+  this.setState((prevState) => {
+    return { showBlog: !prevState.showBlog }
+  })
   }
-  onShowBtnClick=()=>{
-    this.setState({showBlog:true})
 
+
+
+  
+//  buttonLabel = () => {
+//   return <>{this.state.showBlog ? 'Hide List' : 'Show List'}</>
+//  }
+  
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Learn React</h1>
+        <button onClick={this.onHideBtnClick}>{this.state.showBlog ? 'Hide List' : 'Show List'}</button>
+        {/* <button onClick={this.onHideBtnClick}>{this.buttonLabel()}</button> */}
+        <br></br>
+        {
+          this.state.showBlog ? this.blogCard : null
+        }
+
+
+
+      </div>
+
+
+    );
   }
-
-  // const blogCard1 =  <BlogCard/>
-showBlog=true
-
-
- render(){  
-   return (
-    <div className="App">
-      <h1>Learn React</h1>
-      <button onClick= {this.onHideBtnClick}>Hide</button>
-      <button onClick= {this.onShowBtnClick}>Show</button>
-      <br></br>
-      {
-      this.state.showBlog ? this.blogCard :null
-      }
-      {/* {blogCard1} */}
-
-
-
-    </div>
-
-
-  );
- }
 }
 
 export default App;
