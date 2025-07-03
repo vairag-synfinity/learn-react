@@ -1,5 +1,6 @@
 
 // import logo from './logo.svg';
+import  {Component} from 'react';
 import './App.css';
 
 import BlogCard from './blogCard';  
@@ -11,9 +12,13 @@ import {isArrayEmpty} from './utils'
 
 
 
-function App() {
+class App extends Component {
+
+  state ={
+    showBlog : true
+  }
   // const blogArr = null
-  const blogArr = [
+   blogArr = [
     {
       title: "Heading 1",
       description: "In React, a div element functions similarly to a standard HTML div,serving as a generic container for other elements."
@@ -30,10 +35,12 @@ function App() {
 
   ]
  
+   
 
-
-  const blogCard = isArrayEmpty(blogArr) ?['hello'] : blogArr.map((item,pos) => {
+   blogCard = isArrayEmpty(this.blogArr) ?['hello'] : this.blogArr.map((item,pos) => {
     // console.log(item)
+
+
 
     return (
       <BlogCard key={pos} title={item.title} description={item.description} />
@@ -48,32 +55,39 @@ function App() {
 
   })
 
+  onHideBtnClick=()=>{
+    this.setState({showBlog:false})
 
+    console.log(this.showBlog)
+  }
+  onShowBtnClick=()=>{
+    this.setState({showBlog:true})
+
+  }
 
   // const blogCard1 =  <BlogCard/>
+showBlog=true
 
 
-
-  return (
+ render(){  
+   return (
     <div className="App">
       <h1>Learn React</h1>
-      {blogCard}
+      <button onClick= {this.onHideBtnClick}>Hide</button>
+      <button onClick= {this.onShowBtnClick}>Show</button>
+      <br></br>
+      {
+      this.state.showBlog ? this.blogCard :null
+      }
       {/* {blogCard1} */}
-
-
-
-
-
-
-
-
 
 
 
     </div>
 
 
-  )
+  );
+ }
 }
 
 export default App;
